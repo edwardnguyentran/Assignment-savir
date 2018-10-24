@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -232,7 +233,10 @@ public class Quiz extends Fragment {
     }
 //this part makes it go to home screen after quiz is finish
     private void finishQuiz(){
-        getActivity().finish();
+        FragmentTransaction fr=getFragmentManager().beginTransaction();
+        fr.replace(R.id.fragment,new HomePage());
+        getActivity().setTitle("Home Page");
+        fr.commit();
     }
 
     @Override
